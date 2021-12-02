@@ -18,10 +18,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("HEEEERREEE: " + myBrewery!.state)
-        location.text = myBrewery!.city + "," + myBrewery!.state
+        
+        location.text = myBrewery!.city! + "," + myBrewery!.state!
         name.text = myBrewery!.name
-        type.text = myBrewery!.type
+    
         // Do any additional setup after loading the view.
     }
     
