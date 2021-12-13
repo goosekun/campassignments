@@ -35,6 +35,8 @@ class DetailViewController: UIViewController {
             temp.append(element.move.name!)
         }
         movesLbl.text = temp.description
+        movesLbl.adjustsFontSizeToFitWidth = true
+        movesLbl.numberOfLines = 0
         
         
         // Do any additional setup after loading the view.
