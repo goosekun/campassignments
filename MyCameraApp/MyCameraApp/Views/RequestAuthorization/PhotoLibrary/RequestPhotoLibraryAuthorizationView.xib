@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequestPhotoLibraryAuthorizationView" customModule="MyCameraApp" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="R5E-Om-B1e" id="iWs-Yc-I8h"/>
+                <outlet property="actionButtonWidthConstraint" destination="xdD-TU-HVt" id="TkU-H6-vmy"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="yVQ-cU-Yc7"/>
+                <outlet property="messageLbl" destination="TAc-5X-re7" id="U6b-mQ-rgF"/>
+                <outlet property="photoImageView" destination="ugN-1i-fPf" id="yM7-Dc-L9A"/>
+                <outlet property="titleLabel" destination="lNW-X9-dBC" id="YQx-b2-Dt3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ugN-1i-fPf" userLabel="Photo Image View">
+                    <rect key="frame" x="177" y="344" width="60" height="57.5"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="c6b-dj-9t1"/>
+                        <constraint firstAttribute="height" constant="60" id="ugc-Gc-HeU"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Library Authorization" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNW-X9-dBC" userLabel="Title Label">
+                    <rect key="frame" x="20" y="433" width="374" height="30"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5E-Om-B1e" userLabel="Action Button">
+                    <rect key="frame" x="167" y="550" width="80" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="PMB-Wm-0jM"/>
+                        <constraint firstAttribute="width" constant="80" id="xdD-TU-HVt"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Allow">
+                        <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="actionButtonHandlerWithBtn:" destination="-1" eventType="touchUpInside" id="11u-Kw-8au"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We require photo library authorization to provide you the best experience." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAc-5X-re7" userLabel="Message Label">
+                    <rect key="frame" x="20" y="479" width="374" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="R5E-Om-B1e" firstAttribute="top" secondItem="TAc-5X-re7" secondAttribute="bottom" constant="30" id="6r0-gB-q1V"/>
+                <constraint firstItem="ugN-1i-fPf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7Om-bN-qqD"/>
+                <constraint firstAttribute="trailing" secondItem="lNW-X9-dBC" secondAttribute="trailing" constant="20" id="9bW-p2-cKS"/>
+                <constraint firstAttribute="trailing" secondItem="TAc-5X-re7" secondAttribute="trailing" constant="20" id="Mvy-Gf-TuZ"/>
+                <constraint firstItem="lNW-X9-dBC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="SeF-kV-aQx"/>
+                <constraint firstItem="lNW-X9-dBC" firstAttribute="top" secondItem="ugN-1i-fPf" secondAttribute="bottom" constant="30" id="eYt-Dt-gpA"/>
+                <constraint firstItem="TAc-5X-re7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="jqe-UF-DeF"/>
+                <constraint firstItem="TAc-5X-re7" firstAttribute="top" secondItem="lNW-X9-dBC" secondAttribute="bottom" constant="16" id="kk7-jm-cTm"/>
+                <constraint firstItem="R5E-Om-B1e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qm0-j7-ZHC"/>
+                <constraint firstItem="lNW-X9-dBC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rTP-xx-1Mb"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="82"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
