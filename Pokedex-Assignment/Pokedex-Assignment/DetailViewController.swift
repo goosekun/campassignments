@@ -20,23 +20,32 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let sprite = (myPokemon?.sprites.frontDefault!)!
-        imageView.getImage(from: URL(string: sprite)!)
+        let sprite = (myPokemon?.sprites.frontDefault) ?? ""
+        guard let url = URL(string: sprite) else { return }
+        imageView.getImage(from: url)
         nameLbl.text = myPokemon?.species.name
         elementLbl.text = myPokemon?.types[0].type.name
+        
         var temp = [String]()
-        for element in myPokemon!.abilities {
-            temp.append(element.ability.name!)
+        if let abilities = myPokemon?.abilities {
+            for element in abilities {
+                temp.append(element.ability.name ?? "")
+            }
+            abilityLbl.text = temp.description
         }
-        abilityLbl.text = temp.description
+        
         
         temp = []
-        for element in myPokemon!.moves {
-            temp.append(element.move.name!)
+        if let moves = myPokemon?.moves {
+            for element in moves {
+                temp.append(element.move.name ?? "")
+            }
+            
+            movesLbl.text = temp.description
+            movesLbl.adjustsFontSizeToFitWidth = true
+            movesLbl.numberOfLines = 0
         }
-        movesLbl.text = temp.description
-        movesLbl.adjustsFontSizeToFitWidth = true
-        movesLbl.numberOfLines = 0
+        
         
         
         // Do any additional setup after loading the view.

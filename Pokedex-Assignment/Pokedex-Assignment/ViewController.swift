@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     private let PokemonAPI = APICalls()
     
-    var pokemons : [Pokemon] = []
+    var pokemons : [Pokemon?] = []
     
     var page = 0
     var offset = 0
@@ -67,12 +67,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCustomTableViewCell
-        let myImageURL = URL(string: pokemons[indexPath.row].sprites.frontDefault!)!
-        cell.sprite.getImage(from: myImageURL)
-        cell.nameLbl.text = pokemons[indexPath.row].species.name
-        cell.nameLbl.adjustsFontSizeToFitWidth = true
-        cell.elementLbl.text = pokemons[indexPath.row].types[0].type.name
-        cell.elementLbl.adjustsFontSizeToFitWidth = true
+        
+        if let myPokemon = pokemons[indexPath.row] {
+            if let myImageURL = URL(string: myPokemon.sprites.frontDefault ?? "") {
+                cell.sprite.getImage(from: myImageURL)
+            }
+            cell.nameLbl.text = myPokemon.species.name
+            cell.nameLbl.adjustsFontSizeToFitWidth = true
+            cell.elementLbl.text = myPokemon.types[0].type.name
+            cell.elementLbl.adjustsFontSizeToFitWidth = true
+        }
         
         if indexPath.row == pokemons.count - 1 { // last cell
             print("LOADING")
@@ -94,8 +98,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailViewController{
             let selectedRow = sender as? Int
-            if pokemons[selectedRow!] != nil {
-                destination.myPokemon = pokemons[selectedRow!]
+            if let myPokemon = pokemons[selectedRow ?? 0]  {
+                destination.myPokemon = myPokemon
             }
         }
     }
